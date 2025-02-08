@@ -1,3 +1,19 @@
+# Easy Install
+
+## Install Steps:
+- Run the following commands
+   ```bash
+   chmod -R 777 /var/www/html
+   sudo apt install git -y
+   git clone https://github.com/furipaf/ezservermonitor-web.git
+   mv /var/www/html/ezservermonitor-web/* /var/www/html/
+   cd /var/www/html
+   chmod +x install.sh
+   ./install.sh
+   
+- Enjoy
+
+
 [eZ Server Monitor](http://www.ezservermonitor.com) (eSM) is a script for monitoring Linux servers. It is available in [Bash](http://www.ezservermonitor.com/esm-sh/features) version and [Web](http://www.ezservermonitor.com/esm-web/features) application.
 
 # eZ Server Monitor `Web
