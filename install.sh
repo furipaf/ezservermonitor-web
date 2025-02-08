@@ -10,14 +10,7 @@ INSTALL_DIR="/var/www/html"
 
 # Update and install required dependencies
 echo "Updating system and installing dependencies..."
-sudo apt update && sudo apt install -y python3-pip unzip apache2
-
-# Check if gdown is installed, if not, install it
-if ! command -v gdown &> /dev/null
-then
-    echo "gdown not found. Installing..."
-    pip install --no-cache-dir gdown
-fi
+sudo apt update && sudo apt install -y python3-pip unzip apache2 gdown
 
 # Change permissions of /var/www/html directories to 777
 echo "Setting permissions of $INSTALL_DIR directories to 777..."
