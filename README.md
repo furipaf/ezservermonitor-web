@@ -1,5 +1,5 @@
 # Easy Install
-
+## Tested on Raspberry Pi OS Lite (Feb 2025)
 ## Install Steps:
 - Run the following commands
    ```bash
