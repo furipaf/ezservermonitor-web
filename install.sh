@@ -72,3 +72,5 @@ echo "Cleaning up..."
 rm "$FILE_NAME"
 
 echo "Installation complete! You can now access the application at: http://<your-raspberry-pi-ip>/"
+echo "If you see Apache Default Page, Delete "index.html" file in "/var/www/html" or else"
+echo "use  => http://<your-raspberry-pi-ip>/index.php"
