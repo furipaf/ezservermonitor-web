@@ -5,9 +5,9 @@
    ```bash
    chmod -R 777 /var/www/html
    sudo apt install git -y
+   cd /var/www/html
    git clone https://github.com/furipaf/ezservermonitor-web.git
    mv /var/www/html/ezservermonitor-web/* /var/www/html/
-   cd /var/www/html
    chmod +x install.sh
    ./install.sh
    
