@@ -7,21 +7,21 @@ set -e
 FILE_ID="1msoWbgJPNyUvLPoMZiq6sno9PKs4T9pw"
 FILE_NAME="ezservermonitor-web-master.zip"
 INSTALL_DIR="/var/www/html"
-VENV_DIR="$HOME/gdown_venv"
 
 # Update and install required dependencies
 echo "Updating system and installing dependencies..."
-sudo apt update && sudo apt install -y python3-venv unzip apache2
+sudo apt update && sudo apt install -y python3-pip python3-venv unzip apache2 pipx
 
-# Create a virtual environment for gdown if not already exists
-echo "Setting up a virtual environment for gdown..."
-if [ ! -d "$VENV_DIR" ]; then
-    python3 -m venv "$VENV_DIR"
+# Ensure pipx is set up properly
+echo "Ensuring pipx is ready..."
+pipx ensurepath
+export PATH="${HOME}/.local/bin:$PATH"
+
+# Install gdown using pipx if not already installed
+if ! command -v gdown &> /dev/null; then
+    echo "Installing gdown using pipx..."
+    pipx install gdown
 fi
-source "$VENV_DIR/bin/activate"
-
-# Install gdown in the virtual environment
-pip install --no-cache-dir gdown
 
 # Change permissions of /var/www/html directories to 777
 echo "Setting permissions of $INSTALL_DIR directories to 777..."
@@ -72,6 +72,3 @@ echo "Cleaning up..."
 rm "$FILE_NAME"
 
 echo "Installation complete! You can now access the application at: http://<your-raspberry-pi-ip>/"
-
-# Deactivate virtual environment
-deactivate
